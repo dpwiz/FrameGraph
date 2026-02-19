@@ -1,0 +1,100 @@
+name:                vk-frame-graph
+version:             0.1.0.0
+github:              "dpwiz/FrameGraph"
+license:             BSD-3-Clause
+author:              "IC Rainbow"
+maintainer:          "aenor.realm@gmail.com"
+copyright:           "2026 IC Rainbow"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/dpwiz/FrameGraph>
+
+dependencies:
+- base >= 4.7 && < 5
+- vulkan
+- VulkanMemoryAllocator
+- vulkan-utils
+- text
+- bytestring
+- containers
+- fgl
+- algebraic-graphs
+- unordered-containers
+- directory
+- filepath
+- aeson
+- hashable
+- deepseq
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  vk-frame-graph-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - vk-frame-graph
+
+tests:
+  vk-frame-graph-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - vk-frame-graph
+
+language: GHC2021
+default-extensions:
+- ApplicativeDo
+- BinaryLiterals
+- BlockArguments
+- DataKinds
+- DefaultSignatures
+- DerivingStrategies
+- DerivingVia
+- DuplicateRecordFields
+- FunctionalDependencies
+- HexFloatLiterals
+- ImportQualifiedPost
+- LambdaCase
+- NamedFieldPuns
+- NumDecimals
+- OverloadedRecordDot
+- OverloadedStrings
+- PatternSynonyms
+- QuasiQuotes
+- RecordWildCards
+- StrictData
+- TemplateHaskell
+- TypeFamilies
+- TypeOperators
+- ViewPatterns
